@@ -1,6 +1,11 @@
 pipeline {
   agent any
 
+  triggers {
+    // Poll GitHub every 5 minutes (with Jenkins’ H-scatter)
+    pollSCM('H/5 * * * *')
+  }
+
   stages {
     stage('Checkout') {
       steps {
